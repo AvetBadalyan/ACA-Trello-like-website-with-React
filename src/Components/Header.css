@@ -23,6 +23,7 @@
     color: blue;
     margin: 5px;
     padding: 5px;
+     font-size: large;
 }
 
 .login-block{
@@ -31,4 +32,5 @@
     align-items: center;
     margin: 10px;
     padding: 10px;
+     font-size: large;
 }

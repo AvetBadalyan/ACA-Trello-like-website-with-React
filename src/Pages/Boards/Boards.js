@@ -1,7 +1,12 @@
-import React from 'react'
+import React from 'react';
+import MainHeader from '../../Components/MainHeader';
+
 
 export default function Boards() {
   return (
-    <div>Boards</div>
-  )
+    <>
+      <MainHeader/>
+      <div>Boards</div>
+    </>
+  );
 }
