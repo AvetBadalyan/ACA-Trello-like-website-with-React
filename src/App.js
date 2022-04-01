@@ -1,8 +1,7 @@
-import React, { useReducer, useState } from "react";
-import { ReactDOM } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Boards from "./Pages/Boards/Boards";
+import Boards from "./Pages/Boards/BoardsPage";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
 import Login from "./Pages/Login/Login";
@@ -21,7 +20,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/boards" element={<Boards />} />
-            <Route path="/Boards/:Board" element={<Board />} />
             <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
