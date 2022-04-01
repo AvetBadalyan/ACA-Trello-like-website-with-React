@@ -7,7 +7,6 @@ const initialValue = {
   categories: [{ id: "01", category: "JS" }],
   tasks: tasksMockData,
   board: [...tasksMockData],
-  
 };
 
 const ACTION_TYPES = {

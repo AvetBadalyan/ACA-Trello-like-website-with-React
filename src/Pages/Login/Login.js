@@ -1,6 +1,8 @@
 import React, { useContext, useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../../Components/Header";
 import { useSmartContext, initialValue, ACTION_TYPES } from "../../state/state";
+import "./Login.css";
 
 const Login = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -29,27 +31,31 @@ const Login = () => {
   };
 
   return (
-    <form className="form" onSubmit={submitHandler}>
-      <div>
-        <label htmlFor="email">e-mail</label>
-        <input
-          type="email"
-          id="email"
-          value={enteredEmail}
-          onChange={emailChangeHandler}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          value={enteredPassword}
-          onChange={passwordChangeHandler}
-        />
-      </div>
-      <input type="submit" value="Login"/> 
-    </form>
+    <div>
+      <Header />
+
+      <form className="form" onSubmit={submitHandler}>
+        <div>
+          <input
+            type="email"
+            id="email"
+            value={enteredEmail}
+            onChange={emailChangeHandler}
+            placeholder="enter your e-mail"
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            id="password"
+            value={enteredPassword}
+            onChange={passwordChangeHandler}
+            placeholder="enter your password"
+          />
+        </div>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
   );
 };
 

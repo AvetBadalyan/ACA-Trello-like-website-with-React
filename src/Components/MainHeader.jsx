@@ -11,11 +11,9 @@ export default function MainHeader() {
           <img src={Trello} alt="logo" width="100" height="50" />
         </Link>
 
-
-          <Link to="/boards">
-            <a className="boards"> Home (Boards) </a>
-          </Link>
-       
+        <Link to="/boards">
+         <button className="boards"> Home </button>
+        </Link>
       </div>
     </header>
   );
