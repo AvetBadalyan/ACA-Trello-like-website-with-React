@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import Header from "../../Components/Header";
-import { initialValue } from "../../state/state";
+import { initialValue, useSmartContext } from "../../state/state";
+import Boards from "../Boards/Boards";
 
 const Home = () => {
-  const { categories } = initialValue;
-  console.log(initialValue)
+ 
+  const {state,dispatch} = useSmartContext()
+  console.log(initialValue, "initial");
   return (
     <>
       <Header />
-      {categories.map((category) => (
-        <Link key={123} to=''>{category.category}</Link>
-      ))}
+
+      {state.isLoggedIn ? <Boards /> : null}
     </>
   );
 };

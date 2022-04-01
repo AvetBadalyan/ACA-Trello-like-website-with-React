@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { ReactDOM } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -20,8 +20,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/boards" element={<Boards />} />
+
             <Route path="/Boards/:Board" element={<Board />} />
+
             <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
             <Route path="*" element={<NoPage />} />
           </Routes>

@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSmartContext, initialValue, ACTION_TYPES } from "../../state/state";
 
 const Login = () => {
   const [enteredEmail, setEnteredEmail] = useState("");
-  const [emailIsValid, setEmailIsValid] = useState();
+  const [emailIsValid, setEmailIsValid] = useState(false);
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [formIsValid, setFormIsValid] = useState(false);
+  const { dispatch } = useSmartContext();
+  console.log(dispatch);
+  const navigate = useNavigate();
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -30,13 +35,26 @@ const Login = () => {
     setPasswordIsValid(enteredPassword.trim().length > 8);
   };
 
-  const submitHandler = (event) => {
-    event.preventDefault();
-    
+  const goHome = () => {
+    if (formIsValid) {
+      dispatch({ type: ACTION_TYPES.IS_LOGEDIN });
+
+      navigate("/");
+    }
   };
 
+
+
+  // const submitHandler = (event) => {
+  //   event.preventDefault();
+  //   console.log("submit");
+  // };
+
   return (
-    <form onSubmit={submitHandler}>
+    <div
+      className="form"
+      // onSubmit={submitHandler}
+    >
       <div>
         <label htmlFor="email">e-mail</label>
         <input
@@ -58,11 +76,11 @@ const Login = () => {
         />
       </div>
       <div>
-        <button type="submit" disabled={!formIsValid}>
+        <button type="submit" disabled={!formIsValid} onClick={goHome}>
           Login
         </button>
       </div>
-    </form>
+    </div>
   );
 };
 
