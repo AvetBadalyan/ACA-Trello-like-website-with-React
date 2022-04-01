@@ -20,9 +20,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
-
+            <Route path="/boards" element={<Boards />} />
             <Route path="/Boards/:Board" element={<Board />} />
-
             <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
             <Route path="*" element={<NoPage />} />
           </Routes>

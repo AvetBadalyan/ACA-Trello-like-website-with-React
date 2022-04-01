@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 import Header from "../../Components/Header";
-import { initialValue, useSmartContext } from "../../state/state";
+import { useSmartContext } from "../../state/state";
 import Boards from "../Boards/Boards";
 
 const Home = () => {
- 
-  const {state,dispatch} = useSmartContext()
-  console.log(initialValue, "initial");
+  const { state, dispatch } = useSmartContext();
   return (
     <>
       <Header />
-
-      {state.isLoggedIn ? <Boards /> : null}
+      {state.isLoggedIn && <Boards />}
     </>
   );
 };
