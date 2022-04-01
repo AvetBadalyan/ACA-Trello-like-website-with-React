@@ -1,31 +1,32 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { ReactDOM } from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-
 import Boards from "./Pages/Boards/Boards";
 import Home from "./Pages/Home/Home";
 import Profile from "./Pages/Profile/Profile";
-import Signin from "./Pages/Sign-in/Signin";
+import Login from "./Pages/Login/Login";
 import SingleTask from "./Pages/SingleTask/SingleTask";
+import NoPage from "./Pages/noPage";
+import Board from "./Pages/Boards/Board";
+import { ContextProvider } from "./state/state";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<Visit />} />
-          <Route path="/Profile" element={<Profile />} />
-          <Route path="/Signin" element={<Signin />} />
-          <Route path="/Boards" element={<Boards />}>
-            <Route path="/Boards/:Board">
-              element={<Board />}
-              <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
-            </Route>
-          </Route>
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
+      <ContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/boards" element={<Boards />} />
+            <Route path="/Boards/:Board" element={<Board />} />
+            <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </BrowserRouter>
+      </ContextProvider>
     </div>
   );
 }
