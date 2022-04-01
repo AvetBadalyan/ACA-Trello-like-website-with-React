@@ -1,0 +1,11 @@
+.board {
+    width: 25vw;
+    height: 50vh;
+    background-color: rgb(26, 26, 255);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
