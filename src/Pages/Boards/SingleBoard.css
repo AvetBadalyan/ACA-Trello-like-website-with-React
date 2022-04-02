@@ -1,0 +1,51 @@
+.column-to-do,
+.column-in-process,
+.column-completed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25vw;
+  height: auto;
+  background-color: white;
+  color: blue;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin: 2px;
+  padding: 5px;
+  border-radius: 10px;
+  overflow: scroll;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  overflow: scroll;
+}
+
+.columns-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-task-box,
+.add-new-task {
+  background-color: white;
+  color: blue;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  margin: 2px;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

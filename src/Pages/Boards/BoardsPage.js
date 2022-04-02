@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import { ACTION_TYPES, useSmartContext } from "../../state/state";
+import Board from "../../Components/Board";
 import "./BoardsPage.css";
 
 export default function Boards() {
@@ -11,7 +12,7 @@ export default function Boards() {
   return (
     <>
       <MainHeader />
-      <div className="Boards-Container">
+      <div className="Boards-page">
         <input className="new-board-creator" placeholder="Create a new board" />
         <button
           className="board-add-button"
@@ -22,11 +23,10 @@ export default function Boards() {
         >
           Add a new board
         </button>
-        <div className="board">
-          {state.boards.map((board) => board.boardTitle)}
-          <Link to="/Boards/:Board" >
-            <button className="button-to-see-tasks"> See the board </button>
-          </Link>
+        <div className="all-boards-together">
+          {state.boards.map((board) => (
+            <Board boardTitle={board.boardTitle} key={board.boardId} />
+          ))}
         </div>
       </div>
     </>

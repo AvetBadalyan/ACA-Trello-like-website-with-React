@@ -1,18 +1,21 @@
-.all-boards-together {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.Boards-page {
+.board {
+  width: 25vw;
+  height: 50vh;
+  background-color: rgb(26, 26, 255);
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: large;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
 }
 
-.board-add-button {
+
+.button-to-see-tasks {
   color: blue;
   margin: 10px;
   padding: 10px;
@@ -22,4 +25,3 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   border: 1px solid black;
 }
-

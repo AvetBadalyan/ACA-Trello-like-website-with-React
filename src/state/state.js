@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import uuid from "react-uuid";
 import { tasksMockData } from "../data";
 const initialValue = {
   isLoggedIn: false,
@@ -9,6 +8,16 @@ const initialValue = {
       boardTitle: "Learn JS",
       boardId: Math.random(),
       tasks: tasksMockData,
+    },
+    {
+      boardTitle: "Learn to Drive",
+      boardId: Math.random(),
+      tasks: [],
+    },
+    {
+      boardTitle: "Learn to Survive",
+      boardId: Math.random(),
+      tasks: [],
     },
   ],
 };
@@ -25,6 +34,7 @@ const reducer = (state, action) => {
     case ACTION_TYPES.IS_LOGEDIN: {
       return { ...state, isLoggedIn: true };
     }
+
     case ACTION_TYPES.ADD_BOARD: {
       return {
         ...state,
@@ -34,8 +44,9 @@ const reducer = (state, action) => {
         ],
       };
     }
+
     case ACTION_TYPES.ADD_TASK: {
-      const newBoards = state.boards.map((item) => {
+      const BoardAfterAddingTask = state.boards.map((item) => {
         if (item.boardId === action.boardId) {
           return {
             ...item,
@@ -54,8 +65,8 @@ const reducer = (state, action) => {
           return item;
         }
       });
-      return { ...state, boards: newBoards };
-    };
+      return { ...state, boards: BoardAfterAddingTask };
+    }
     default:
       return state;
   }

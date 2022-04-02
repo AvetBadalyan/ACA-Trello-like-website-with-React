@@ -7,8 +7,8 @@ import Profile from "./Pages/Profile/Profile";
 import Login from "./Pages/Login/Login";
 import SingleTask from "./Pages/SingleTask/SingleTask";
 import NoPage from "./Pages/noPage";
-import Board from "./Pages/Boards/Board";
 import { ContextProvider } from "./state/state";
+import SingleBoard from "./Pages/Boards/SingleBoard";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/boards" element={<Boards />} />
-            <Route path="/Boards/:Board" element={<Board />} />
+            <Route path="/boards/:boardId" element={<SingleBoard />} />
             <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
             <Route path="*" element={<NoPage />} />
           </Routes>
