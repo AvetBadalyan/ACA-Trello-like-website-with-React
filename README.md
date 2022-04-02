@@ -1,3 +1,10 @@
+# Create a Website for task management like TRELLO
+
+![Screenshot1](./screenshots/welcome.jpg)
+![Screenshot2](./screenshots/loginjpg.jpg)
+![Screenshot3](./screenshots/board.jpg)
+![Screenshot4](./screenshots/columns.jpg)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
