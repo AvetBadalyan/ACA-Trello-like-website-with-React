@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SingleBoard from "../Pages/Boards/SingleBoard";
+import SingleBoard from "../Pages/Single_Board/SingleBoard";
 import "./Board.css";
 
 

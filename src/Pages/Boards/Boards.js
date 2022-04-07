@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import { ACTION_TYPES, useSmartContext } from "../../state/state";
 import Board from "../../Components/Board";
-import "./BoardsPage.css";
+import "./Boards.css";
 
 export default function Boards() {
   const { state, dispatch } = useSmartContext();
@@ -38,6 +38,11 @@ export default function Boards() {
         <button className="board-add-button" onClick={handleClick}>
           Add a new board
         </button>
+
+        <div>
+  <Link to="/boards/JS"> go to single board </Link>
+        </div>
+
         <div className="all-boards-together">
           {state.boards.map((board) => (
             <Board

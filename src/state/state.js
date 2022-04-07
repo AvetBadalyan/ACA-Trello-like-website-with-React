@@ -3,73 +3,7 @@ import { tasksMockData } from "../data";
 const initialValue = {
   isLoggedIn: false,
   userInfo: "Avet",
-  boards: [
-    {
-      boardTitle: "Learn JS",
-      boardId: Math.random(),
-      tasks: tasksMockData,
-    },
-    {
-      boardTitle: "Learn to Drive",
-      boardId: Math.random(),
-      tasks: [
-        {
-          title: "Learn English",
-          description: "Enhance skills",
-          priority: "medium",
-          id: 1,
-          category: "JS",
-          status: "doing",
-        },
-        {
-          title: "Learn Math",
-          description: "Enhance skills",
-          priority: "low",
-          id: 2,
-          category: "JS",
-          status: "todo",
-        },
-        {
-          title: "Learn English",
-          description: "Enhance skills",
-          priority: "medium",
-          id: 4,
-          category: "JS",
-          status: "done",
-        },
-      ],
-    },
-    {
-      boardTitle: "Learn to Survive",
-      boardId: Math.random(),
-      tasks: [
-        {
-          title: "Learn English",
-          description: "Enhance skills",
-          priority: "medium",
-          id: 1,
-          category: "JS",
-          status: "doing",
-        },
-        {
-          title: "Learn Math",
-          description: "Enhance skills",
-          priority: "low",
-          id: 2,
-          category: "JS",
-          status: "todo",
-        },
-        {
-          title: "Learn English",
-          description: "Enhance skills",
-          priority: "medium",
-          id: 4,
-          category: "JS",
-          status: "done",
-        },
-      ],
-    },
-  ],
+  tasks: [],
 };
 
 const ACTION_TYPES = {
@@ -79,8 +13,11 @@ const ACTION_TYPES = {
   ADD_TASK: "ADD_TASK",
 };
 
-const reducer = (state, action) => {
+function reducer(state, action) {
   switch (action.type) {
+    case ACTION_TYPES.SET_TASKS: {
+      return { ...state, task: action.tasks };
+    }
     case ACTION_TYPES.IS_LOGEDIN: {
       return { ...state, isLoggedIn: true };
     }
@@ -90,7 +27,11 @@ const reducer = (state, action) => {
         ...state,
         boards: [
           ...state.boards,
-          { boardTitle: action.payload.boardTitle, boardId: action.payload.boardId, tasks: [] },
+          {
+            boardTitle: action.payload.boardTitle,
+            boardId: action.payload.boardId,
+            tasks: [],
+          },
         ],
       };
     }
@@ -120,7 +61,7 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
 const Context = createContext(initialValue);
 
