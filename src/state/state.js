@@ -12,12 +12,62 @@ const initialValue = {
     {
       boardTitle: "Learn to Drive",
       boardId: Math.random(),
-      tasks: [],
+      tasks: [
+        {
+          title: "Learn English",
+          description: "Enhance skills",
+          priority: "medium",
+          id: 1,
+          category: "JS",
+          status: "doing",
+        },
+        {
+          title: "Learn Math",
+          description: "Enhance skills",
+          priority: "low",
+          id: 2,
+          category: "JS",
+          status: "todo",
+        },
+        {
+          title: "Learn English",
+          description: "Enhance skills",
+          priority: "medium",
+          id: 4,
+          category: "JS",
+          status: "done",
+        },
+      ],
     },
     {
       boardTitle: "Learn to Survive",
       boardId: Math.random(),
-      tasks: [],
+      tasks: [
+        {
+          title: "Learn English",
+          description: "Enhance skills",
+          priority: "medium",
+          id: 1,
+          category: "JS",
+          status: "doing",
+        },
+        {
+          title: "Learn Math",
+          description: "Enhance skills",
+          priority: "low",
+          id: 2,
+          category: "JS",
+          status: "todo",
+        },
+        {
+          title: "Learn English",
+          description: "Enhance skills",
+          priority: "medium",
+          id: 4,
+          category: "JS",
+          status: "done",
+        },
+      ],
     },
   ],
 };
@@ -40,7 +90,7 @@ const reducer = (state, action) => {
         ...state,
         boards: [
           ...state.boards,
-          { boardTitle: action.boardTitle, boardId: action.boardId, tasks: [] },
+          { boardTitle: action.payload.boardTitle, boardId: action.payload.boardId, tasks: [] },
         ],
       };
     }

@@ -9,15 +9,7 @@ export default function SingleTask() {
   return (
     <>
       <Header />
-      <div className="main">
-        {initialValue.tasks.map((item) => {
-          <div className="singleTask" key={item.id}>
-            {
-              item.description
-            }
-          </div>;
-        })}
-      </div>
+     
     </>
   );
 }
