@@ -42,6 +42,15 @@ export default function Modal({ category }) {
           />
         </label>
 
+        <label htmlFor="">
+          Priority
+          <Input
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="high/low/medium"
+          />
+        </label>
+
         <button onClick={createTaskHandler}> Create a new task </button>
       </div>
     </div>
