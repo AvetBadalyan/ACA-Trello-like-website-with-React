@@ -7,6 +7,7 @@ import Input from "./Input";
 export default function Modal({ category }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [priority, setPriority] = useState("low");
   const { state, dispatch } = useSmartContext();
 
   const createTaskHandler = () => {
@@ -45,8 +46,8 @@ export default function Modal({ category }) {
         <label htmlFor="">
           Priority
           <Input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
             placeholder="high/low/medium"
           />
         </label>
