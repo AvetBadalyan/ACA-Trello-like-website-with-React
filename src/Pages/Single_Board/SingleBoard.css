@@ -49,3 +49,12 @@
   justify-content: center;
   align-items: center;
 }
+
+.task {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  padding: 8px;
+  box-sizing: border-box;
+  margin: 8px;
+}

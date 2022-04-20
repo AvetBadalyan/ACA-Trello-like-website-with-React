@@ -9,7 +9,6 @@ const Home = () => {
       <Header />
       <VisitePage />
       <div>
-        <Button />
         <Link to="/boards"> Home </Link>
       </div>
     </>

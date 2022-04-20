@@ -1,61 +1,44 @@
 import React, { useEffect, useState } from "react";
 import MainHeader from "../../Components/MainHeader";
-import Board from "../../Components/Board";
 import { useSmartContext } from "../../state/state";
 import "./SingleBoard.css";
 import { ACTION_TYPES } from "../../state/state";
 import { useParams } from "react-router";
 import { projectFireStore } from "../../firebase/index";
+import Modal from "../../Components/Modal";
+import TaskColumn from "../../Components/TaskColumn";
 
 export default function SingleBoard() {
   const [isLoading, setIsLoading] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   const { state, dispatch } = useSmartContext();
   const { boardId } = useParams();
 
-  useEffect(() => {
-    let results = [];
-    setIsLoading(true);
-    projectFireStore
-      .collection("/tasks")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          results.push({ id: doc.id, ...doc.data() });
-        });
-        dispatch({ type: ACTION_TYPES.SET_TASKS, tasks: results });
-        setIsLoading(false);
-      });
-  }, []);
+  const STATUSES = {
+    TODO: "TODO",
+    DOING: "DOING",
+    DONE: "DONE",
+  };
 
-  const data = state.boards.filter((item) => {
-    return item.boardId === boardId;
-  });
+  const openModal = () => {
+    dispatch({ type: ACTION_TYPES.TOGGLE_MODAL });
+  };
+
+  const deleteTask = () => {};
+
+  const editTask = () => {};
+
+  const data = state.boards.find((item) => item.boardTitle === boardId).tasks;
 
   return (
     <div>
       <MainHeader />
-
-      {isLoading ? (
-        <div>...loading</div>
-      ) : (
-        state.tasks.map((task) => (
-          <div key={task.id}>
-            <span>{task.title} </span>
-            <span>{task.priority} </span>
-          </div>
-        ))
-      )}
-
+      {state.isModalOpen && <Modal category={boardId} />}
       <div className=" columns-page">
         <div className="add-new-task-box">
-          <input
-            className="add-new-task"
-            type="text"
-            placeholder="add a new task"
-          />
           <button
             className="add-new-task"
-            // onClick={() => dispatch({ type: ACTION_TYPES.ADD_TASK })}
+            onClick={() => dispatch({ type: ACTION_TYPES.TOGGLE_MODAL })}
           >
             Add a new task
           </button>
@@ -64,21 +47,28 @@ export default function SingleBoard() {
         <div className="columns">
           <div className="column-to-do">
             <h1> Tasks To do </h1>
+            {data?.length &&
+              data
+                .filter((task) => task.status === "todo")
+                .map((task) => <div key={task.id}>{task.title}</div>)}
           </div>
           <div className="column-in-process">
             <h1> in Process </h1>
-            {data.tasks.map((task) =>
-              task.filter(() => task.status === "todo")
-            )}
+            {data?.length &&
+              data
+                .filter((task) => task.status === "doing")
+                .map((task) => <div key={task.id}>{task.title}</div>)}
           </div>
           <div className="column-completed">
             <h1> Completed </h1>
-            {data.tasks.map((task) =>
-              task.filter(() => task.status === "todo")
-            )}
+            {data?.length &&
+              data
+                .filter((task) => task.status === "done")
+                .map((task) => <div key={task.id}>{task.title}</div>)}
           </div>
         </div>
-      </div>
+      </div>{" "}
+      :
     </div>
   );
 }
