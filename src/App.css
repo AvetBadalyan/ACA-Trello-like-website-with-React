@@ -5,11 +5,11 @@
   background-color: rgba(120, 120, 120, 0.8);
   position: absolute;
   top: 0;
-
   padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
 .modalContent {
@@ -37,4 +37,16 @@
   text-align: center;
   margin: 10px;
   padding: 10px;
+}
+
+input::placeholder {
+  color: blue;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.modal input::placeholder {
+  color: blue;
+  font-size: 20px;
+  font-style: italic;
 }
