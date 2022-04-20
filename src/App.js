@@ -12,17 +12,23 @@ import Boards from "./Pages/Boards/Boards";
 import SingleBoard from "./Pages/Single_Board/SingleBoard";
 import PrivateRoute from "./Components/PrivateRoute";
 
-
 function App() {
   return (
     <div className="App">
       <ContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<PrivateRoute> <Home/> </PrivateRoute>} />
+            <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/boards" element={<Boards />} />
+            <Route
+              path="/boards"
+              element={
+                <PrivateRoute>
+                  <Boards />
+                </PrivateRoute>
+              }
+            />
             <Route path="/boards/:boardId" element={<SingleBoard />} />
             <Route path="/Boards/:Board/:taskId" element={<SingleTask />} />
             <Route path="*" element={<NoPage />} />

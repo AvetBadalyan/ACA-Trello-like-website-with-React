@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-flow: row wrap;
 }
 
 .Boards-page {
@@ -23,3 +24,29 @@
   border: 1px solid black;
 }
 
+.board {
+  width: 25vw;
+  height: 50vh;
+  background-color: rgb(26, 26, 255);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+}
+
+.button-to-see-tasks {
+  color: blue;
+  margin: 10px;
+  padding: 10px;
+  font-size: large;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+}

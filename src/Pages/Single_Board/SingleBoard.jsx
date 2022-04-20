@@ -4,12 +4,10 @@ import { useSmartContext } from "../../state/state";
 import "./SingleBoard.css";
 import { ACTION_TYPES } from "../../state/state";
 import { useParams } from "react-router";
-import { projectFireStore } from "../../firebase/index";
 import Modal from "../../Components/Modal";
-import TaskColumn from "../../Components/TaskColumn";
+import Task from "../../Components/Task";
 
 export default function SingleBoard() {
-  const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const { state, dispatch } = useSmartContext();
   const { boardId } = useParams();
@@ -50,7 +48,17 @@ export default function SingleBoard() {
             {data?.length &&
               data
                 .filter((task) => task.status === "todo")
-                .map((task) => <div key={task.id}>{task.title}</div>)}
+                .map((task) => (
+                  <Task
+                    key={task.id}
+                    title={task.title}
+                    id={task.id}
+                    description={task.description}
+                    category={task.category}
+                    priority={task.priority}
+                    status={task.status}
+                  />
+                ))}
           </div>
           <div className="column-in-process">
             <h1> in Process </h1>
@@ -67,7 +75,7 @@ export default function SingleBoard() {
                 .map((task) => <div key={task.id}>{task.title}</div>)}
           </div>
         </div>
-      </div>{" "}
+      </div>
       :
     </div>
   );

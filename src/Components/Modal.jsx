@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { projectFireStore } from "../firebase";
+
 import { ACTION_TYPES, useSmartContext } from "../state/state";
 import "./../App.css";
 import Input from "./Input";

@@ -1,9 +1,7 @@
-import { type } from "@testing-library/user-event/dist/type";
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import MainHeader from "../../Components/MainHeader";
 import { ACTION_TYPES, useSmartContext } from "../../state/state";
-import Board from "../../Components/Board";
 import "./Boards.css";
 
 export default function Boards() {
@@ -12,10 +10,9 @@ export default function Boards() {
 
   const inputHandler = (e) => {
     setInputValue(e.target.value);
-  }
- 
+  };
 
-  const handleClick =  (() => {
+  const handleClick = () => {
     dispatch({
       type: ACTION_TYPES.ADD_BOARD,
       payload: {
@@ -23,7 +20,7 @@ export default function Boards() {
         boardTitle: inputValue,
       },
     });
-  })
+  };
 
   return (
     <>
@@ -39,19 +36,18 @@ export default function Boards() {
           Add a new board
         </button>
 
-        <div>
-  <Link to="/boards/JS"> go to single board </Link>
-        </div>
-
         <div className="all-boards-together">
-          {state.boards.map((board) => (
-            <Board
-              boardTitle={board.boardTitle}
-              key={board.boardId}
-              boardId={board.boardTitle.trim()}
-              board={board}
-            />
-          ))}
+          {state.boards.map((board) => {
+            return (
+              <div className="board">
+                <h1> {board.boardTitle} </h1>
+
+                <Link to={`/boards/${board.boardTitle}`}>
+                  <button className="button-to-see-tasks">See the board</button>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

@@ -35,7 +35,9 @@ const Login = () => {
       <Header />
 
       <form className="form" onSubmit={submitHandler}>
-        <h1 style={{color: "blue"}}> Sign in to the best Task Management Website - TRELLO</h1>
+        <h1 style={{ color: "blue" }}>
+          Sign in to the best Task Management Website - TRELLO
+        </h1>
         <div>
           <input
             type="email"
